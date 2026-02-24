@@ -14,14 +14,18 @@ public class LeeCSV {
                 String[] columnas = linea.split(",");
                 int edad = Integer.parseInt(columnas[1]);
                 int nota = Integer.parseInt(columnas[2]);
-
                 if(nota >=90) {
-                    contador++;
+                    contador++;               
                 }
                sumaedades += edad;
                 totalestudiantes++;
                 }
-                System.out.println();
+                System.out.println("RESULTADOS");
+            System.out.println("NOTAS MAYORES A 90" + contador);
+             if (totalestudiantes >0) {
+                        double promedioEdad = (double) sumaedades / totalestudiantes;
+                System.out.println("PROMEDIO EDAD" + promedioEdad);
+            
             }
         } catch (IOException e) {
             System.out.println("Error al leer el archivo CSV: " + e.getMessage());
