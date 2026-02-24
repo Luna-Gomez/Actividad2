@@ -7,10 +7,19 @@ public class LeeCSV {
         String rutaArchivo = "datos.csv";
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
+            int contador = 0;
+            int sumaedades = 0;
+            int totalestudiantes = 0;
             while ((linea = br.readLine()) != null) {
                 String[] columnas = linea.split(",");
-                for (String celda : columnas) {
-                    System.out.print(celda + "\t");
+                int edad = Integer.parseInt(columnas[1]);
+                int nota = Integer.parseInt(columnas[2]);
+
+                if(nota >=90) {
+                    contador++;
+                }
+               sumaedades += edad;
+                totalestudiantes++;
                 }
                 System.out.println();
             }
